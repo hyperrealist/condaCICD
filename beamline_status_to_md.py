@@ -5,7 +5,7 @@ import json
 def main():
     parser = argparse.ArgumentParser(description='Generate a report of status of each beamline for a python version')
     parser.add_argument("-p", "--python_version", default="3.10", help="The python ver for Conda")
-    parser.add_argument("-a", "--action_run", default="9784144631", help="The ID(s) of current workflow")
+    parser.add_argument("-a", "--action_run", default="10185242573", help="The ID(s) of current workflow")
     parser.add_argument("-j", "--json_name", default="workflow_info",
                         help="jsonfile containing info about previous job of current workflow")
     parser.add_argument("-m", "--markdown_name", default="job_info",
@@ -14,7 +14,7 @@ def main():
                         help="jsonfile containing info about previous check run of current workflow")
     parser.add_argument("-o", "--org", default="StaticYolt",
                         help="organization of the repo to call GH api")
-    parser.add_argument("-r", "--repo", default="nsls2-collection-tiled",
+    parser.add_argument("-r", "--repo", default="testing_conda_artifact_scenarios",
                         help="repository to find actions from")
     args = parser.parse_args()
     os.system(f'''gh api \
