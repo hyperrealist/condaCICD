@@ -67,7 +67,7 @@ jobs:
           if [ ! -d "${ARTIFACTS_DIR}" ]; then
               mkdir -v -p "${ARTIFACTS_DIR}"
           fi
-          python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
+          python3 download_from_zenodo.py -r "12207275" -a "${{ secrets.ZENODO_TOKEN }}"
           pwd
           ls
           ls ${ARTIFACTS_DIR}
