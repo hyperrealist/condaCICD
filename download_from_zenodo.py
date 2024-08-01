@@ -18,7 +18,7 @@ def main():
         print("url:", url)
         r = requests.get(url, params={'access_token': args.access_token})
         cur_path = os.path.dirname(__file__)
-        new_path = os.path.relpath(f'artifacts\\{filename}', cur_path)
+        new_path = os.path.relpath(f'artifacts/{filename}', cur_path)
         with open(new_path, 'wb') as f:
             f.write(r.content)
 
