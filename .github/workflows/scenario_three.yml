@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  generate_conda_packd_envs:
+  download_conda_packd_envs:
     #inputs.version is from the workflow call from the main yml file
     name: ${{ inputs.version }} Python for Conda packed env
     runs-on: ubuntu-latest
@@ -161,7 +161,7 @@ jobs:
     steps:
       - run: echo "TEST_CONDA_PACKED_NAME=${{ needs.generate_conda_packd_envs.outputs.test_conda_packed_name }}" >> $GITHUB_ENV
       - name: using test-action
-        uses: StaticYolt/testing-conda-environment@v1.2.8
+        uses: StaticYolt/testing-conda-environment@v1.2.7
         with:
           run-id: "${{ github.run_id }}"
           test-conda-packed-name: "${{ env.TEST_CONDA_PACKED_NAME }}"
