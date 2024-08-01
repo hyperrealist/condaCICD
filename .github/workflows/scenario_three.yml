@@ -70,6 +70,7 @@ jobs:
           python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
           pwd
           ls
+          ls ${ARTIFACTS_DIR}
 
       - name: Contents of the env .yml file
         run: |
