@@ -17,7 +17,8 @@ def main():
         print("Downloading:", filename)
         print("url:", url)
         r = requests.get(url, params={'access_token': args.access_token})
-        with open(f'{os.getcwd()}/{filename}', 'wb') as f:
+        home_directory = os.path.expanduser('~')
+        with open(f'{home_directory}/{filename}', 'wb') as f:
             f.write(r.content)
 
 if __name__ == "__main__":
