@@ -16,10 +16,10 @@ jobs:
       test_conda_packed_name: ${{ env.TEST_ENV_NAME }}
     env:
       TZ: America/New_York
-#
-#    defaults:
-#      run:
-#        shell: bash -lvxeo pipefail {0}
+
+    defaults:
+      run:
+        shell: bash -lvxeo pipefail {0}
 
     steps:
       - name: Checkout the code
@@ -65,7 +65,9 @@ jobs:
           fi
 
       - name: Download Artifacts From Zenodo
-        run: python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
+        run: |
+          python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
+          ls artifacts
 
       - name: Contents of the env .yml file
         run: |
