@@ -18,7 +18,7 @@ def main():
         print("url:", url)
         r = requests.get(url, params={'access_token': args.access_token})
         home_directory = os.path.expanduser('~')
-        with open(f'{home_directory}/{filename}', 'wb') as f:
+        with open(f'{home_directory}/artifacts/{filename}', 'wb') as f:
             f.write(r.content)
 
 if __name__ == "__main__":
