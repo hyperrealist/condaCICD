@@ -67,7 +67,7 @@ jobs:
       - name: Download Artifacts From Zenodo
         run: |
           python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
-          ls artifacts
+          ls $HOME/artifacts
 
       - name: Contents of the env .yml file
         run: |
