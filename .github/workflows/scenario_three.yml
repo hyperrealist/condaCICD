@@ -60,8 +60,6 @@ jobs:
 
       - name: Download Artifacts From Zenodo
         run: |
-          set -vxeo pipefail
-
           export ARTIFACTS_DIR="$HOME/artifacts"
           echo "ARTIFACTS_DIR=${ARTIFACTS_DIR}" >> $GITHUB_ENV
           if [ ! -d "${ARTIFACTS_DIR}" ]; then
