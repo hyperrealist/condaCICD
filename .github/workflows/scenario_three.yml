@@ -58,16 +58,16 @@ jobs:
   
           env | sort -u
           echo "$GITHUB_ENV"
+          
+
+      - name: Download Artifacts From Zenodo
+        run: |
           export ARTIFACTS_DIR="$HOME/artifacts"
           echo "ARTIFACTS_DIR=${ARTIFACTS_DIR}" >> $GITHUB_ENV
           if [ ! -d "${ARTIFACTS_DIR}" ]; then
               mkdir -v -p "${ARTIFACTS_DIR}"
           fi
-
-      - name: Download Artifacts From Zenodo
-        run: |
           python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
-          ls $HOME/artifacts
           ls
 
       - name: Contents of the env .yml file
