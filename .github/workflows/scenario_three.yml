@@ -33,6 +33,7 @@ jobs:
       - name: Install YAML CLI tools
         run: |
           python3 -m pip install shyaml
+          python3 -m pip install requests
 
       - name: Set env vars
         # Most importantly creates the Conda Environment name whose format is year-version-pythonversion-tiled
