@@ -17,9 +17,9 @@ jobs:
     env:
       TZ: America/New_York
 
-    defaults:
-      run:
-        shell: bash -lvxeo pipefail {0}
+#    defaults:
+#      run:
+#        shell: bash -lvxeo pipefail {0}
 
     steps:
       - name: Checkout the code
@@ -68,6 +68,7 @@ jobs:
         run: |
           python3 download_from_zenodo.py -r "12627107" -a "${{ secrets.ZENODO_TOKEN }}"
           ls $HOME/artifacts
+          ls
 
       - name: Contents of the env .yml file
         run: |
