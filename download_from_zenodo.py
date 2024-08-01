@@ -17,7 +17,7 @@ def main():
         print("Downloading:", filename)
         print("url:", url)
         r = requests.get(url, params={'access_token': args.access_token})
-        with open(f'home/runner/artifacts/{filename}', 'wb') as f:
+        with open(f'{os.getcwd()}/{filename}', 'wb') as f:
             f.write(r.content)
 
 if __name__ == "__main__":
