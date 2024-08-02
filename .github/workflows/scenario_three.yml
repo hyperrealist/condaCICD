@@ -1,5 +1,5 @@
 name: package_env
-
+#Big limitation is that versions are limited, you have to go to configs and change the env name to the version you want
 on:
   workflow_call:
     inputs:
@@ -73,7 +73,7 @@ jobs:
           if [ ! -d "${ARTIFACTS_DIR}" ]; then
               mkdir -v -p "${ARTIFACTS_DIR}"
           fi
-          python3 download_from_zenodo.py -r "12207275" -a "${{ secrets.ZENODO_TOKEN }}"
+          python3 download_from_zenodo.py -r "12207275" -a "${{ secrets.ZENODO_TOKEN }}" -p "${PYTHONVER}"
           pwd
           ls
           ls ${ARTIFACTS_DIR}
