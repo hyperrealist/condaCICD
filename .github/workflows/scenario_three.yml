@@ -137,7 +137,13 @@ jobs:
             beamline_acronym: "qas"
     runs-on: ubuntu-latest
     steps:
-      -
+      - name: Free disk space
+        run: |
+          sudo swapoff -a
+          sudo rm -f /swapfile
+          sudo apt clean
+          docker rmi $(docker image ls -aq)
+          df -h
       - run: echo "TEST_CONDA_PACKED_NAME=${{ needs.download_conda_packd_envs.outputs.test_conda_packed_name }}" >> $GITHUB_ENV
       - name: using test-action
         uses: StaticYolt/testing-conda-environment@v1.2.8
@@ -155,13 +161,6 @@ jobs:
       (needs.testing_conda_artifact.result == 'success' || needs.testing_conda_artifact.result == 'failure')
     runs-on: ubuntu-latest
     steps:
-      - name: Free disk space
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile
-          sudo apt clean
-          docker rmi $(docker image ls -aq)
-          df -h
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Set Up Python
