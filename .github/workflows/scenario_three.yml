@@ -58,14 +58,7 @@ jobs:
   
           env | sort -u
           echo "$GITHUB_ENV"
-          
-      - name: Free disk space
-        run: |
-          sudo swapoff -a
-          sudo rm -f /swapfile
-          sudo apt clean
-          docker rmi $(docker image ls -aq)
-          df -h
+
       - name: Download Artifacts From Zenodo
         run: |
           export ARTIFACTS_DIR="$HOME/artifacts"
