@@ -68,9 +68,9 @@ jobs:
               mkdir -v -p "${ARTIFACTS_DIR}"
           fi
           python3 download_from_github.py -o "nsls2-conda-envs" -a "10189092932" -r "nsls2-collection-tiled" -p ${{ env.PYTHONVER }}
-          mv *${{ env.CONDA_PACK_ENV_NAME }}* "$HOME/${{ env.ARTIFACTS_DIR }}"
+          mv *${{ env.CONDA_PACK_ENV_NAME }}* "${HOME}/${{ env.ARTIFACTS_DIR }}"
           echo "moving results"
-          ls "$HOME/${{ env.ARTIFACTS_DIR }}"
+          ls "${HOME}/${{ env.ARTIFACTS_DIR }}"
           
 
       - name: Contents of the env .yml file
