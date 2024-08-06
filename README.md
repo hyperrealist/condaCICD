@@ -72,3 +72,10 @@ Limitations:
 ### upload_on_success
 Figures out the success rate of tests across beamlines from all python version which is used to 
 determine whether to use upload_artifact methods to create that new version draft on Zenodo.
+
+## Additional Notes
+For each scenario, switching between them requires different things
+
+In scenario one, it requires the packed name of the files in configs and envs to be the same as the version you want
+
+In scenario two and three, it should only require the configs name to be the version you want
