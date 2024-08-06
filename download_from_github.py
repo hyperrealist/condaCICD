@@ -26,7 +26,7 @@ def main():
         for element in data['artifacts']:
             if element['workflow_run'].get('id') == int(args.action_run) and os.path.splitext(element['name'])[1] != '.yml' and args.python_ver == element['name'].split('-')[2][2:]:
                 os.system(f"echo \"link: {str(element['url'])}\"")
-                os.system(f"GHA_TOKEN={os.environ['GHA_TOKEN']} bash download-artifacts.sh {args.repository} {args.organization} {str(element['id'])} {str(element['name'])}")
+                os.system(f"GHA_TOKEN={os.environ['GHA_TOKEN']} bash download-artifacts_no_unzip.sh {args.repository} {args.organization} {str(element['id'])} {str(element['name'])}")
 
                 print(args.repository)
                 print(args.organization)
