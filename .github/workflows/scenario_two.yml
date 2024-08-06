@@ -62,7 +62,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GHA_TOKEN: ${{ github.token }}
         run: |
-          python3 parse_for_artifacts.py -o "nsls2-conda-envs" -a "10189092932" -r "nsls2-collection-tiled"
+          python3 download_from_github.py -o "nsls2-conda-envs" -a "10189092932" -r "nsls2-collection-tiled" -p ${{ env.PYTHONVER }}
           ls
           pwd
 
