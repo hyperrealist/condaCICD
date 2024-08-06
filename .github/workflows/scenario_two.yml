@@ -59,7 +59,7 @@ jobs:
           echo "$GITHUB_ENV"
       - name: Download Artifacts from Github Repo
         run: |
-          python3 parse_for_artifacts -o "nsls2-conda-envs" -a "10189092932" -r "nsls2-collection-tiled"
+          python3 parse_for_artifacts.py -o "nsls2-conda-envs" -a "10189092932" -r "nsls2-collection-tiled"
           ls
           pwd
 
