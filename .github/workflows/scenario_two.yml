@@ -75,7 +75,7 @@ jobs:
 
       - name: Contents of the env .yml file
         run: |
-          cat ${ARTIFACTS_DIR}/${CONDA_PACK_ENV_NAME}.yml
+          cat ${ARTIFACTS_DIR}/${CONDA_PACK_ENV_NAME}.yml.txt
 
       - name: Checksum files
         run: |
