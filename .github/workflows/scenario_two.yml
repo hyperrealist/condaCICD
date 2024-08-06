@@ -60,6 +60,7 @@ jobs:
       - name: Download Artifacts from Github Repo
         env:
           GH_TOKEN: ${{ github.token }}
+          GHA_TOKEN: ${{ github.token }}
         run: |
           python3 parse_for_artifacts.py -o "nsls2-conda-envs" -a "10189092932" -r "nsls2-collection-tiled"
           ls
