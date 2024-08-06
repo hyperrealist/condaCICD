@@ -17,9 +17,9 @@ jobs:
     env:
       TZ: America/New_York
 
-    defaults:
-      run:
-        shell: bash -lvxeo pipefail {0}
+#    defaults:
+#      run:
+#        shell: bash -lvxeo pipefail {0}
 
     steps:
       - name: Checkout the code
