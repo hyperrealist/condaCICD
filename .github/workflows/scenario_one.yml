@@ -10,7 +10,7 @@ on:
 jobs:
   generate_conda_packd_envs:
     #inputs.version is from the workflow call from the main yml file
-    name: ${{ inputs.version }} Python for Conda packed env
+    name: conda-pack'd env with Python ${{ inputs.version }}
     runs-on: ubuntu-latest
     outputs:
       test_conda_packed_name: ${{ env.TEST_ENV_NAME }}
@@ -75,6 +75,39 @@ jobs:
           conda config --show
           printenv | sort
         #original line 1: set -vxeuo pipefail
+
+      - name: Add packages for py311
+        if: inputs.version == '3.11'
+        run: |
+          conda install -c conda-forge \
+            "bloptools>=0.7.0" \
+            "bluesky-darkframes>=0.6.0" \
+            caproto \
+            emojis \
+            happi \
+            pexpect \
+            "pyolog>=4.5.0" \
+            pyserial \
+            python-confluent-kafka \
+            pyzenodo3 \
+            simple-pid \
+            slack-sdk \
+            hklpy \
+            "hxnfly>=0.0.11" \
+            kkcalc \
+            ppmac \
+            "pychx>=4.3.1" \
+            "xpdacq==1.0.0" \
+            hunter \
+            logging_tree \
+            line_profiler \
+            pyinstrument \
+            pyperformance \
+            botorch \
+            gpytorch \
+            ortools-python \
+            pytorch \
+            scikit-optimize
 
       - name: Export files
         run: |
